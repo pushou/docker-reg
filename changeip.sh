@@ -7,7 +7,7 @@ IPADDRM=$(ip a|grep inet|grep $METH|awk '{print $2}')
 OLDIFS=$IFS
 IFS=/; read -a IPADDRS <<<"$IPADDRM"
 IFS=$OLDIFS
-sed -i "s/# subjectAltName=IP:MONIP/subjectAltName=IP:$IPADDRS/g" ./openssl.cnf
+sed -i "s/# subjectAltName = IP:MONIP/subjectAltName = IP:$IPADDRS/g" ./openssl.cnf
 cp -f ./openssl.cnf /etc/ssl/openssl.cnf
 mkdir -p /etc/docker/certs.d/$IPADDRS:$PORT
 mkdir -p /home/$MUSER/certs$IPADDRS
