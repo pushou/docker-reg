@@ -22,5 +22,4 @@ echo $REGSTRLINE
 sed -i '/DOCKER_OPTS/d' $DEFAULT_DOCKER
 echo $REGSTRLINE >> $DEFAULT_DOCKER
 service docker restart
-echo "run -d -p $PORT:5000 --restart=always --name registry_$IPADDRS -v  /home/$MUSER/data:/var/lib/registry -v /home/$MUSER/certs$IPADDRS:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/home/$MUSER/certs$IPADDRS/domain.crt -e REGISTRY_HTTP_TLS_KEY=/home/$MUSER/certs$IPADDRS/domain.key registry:2"
-docker run -d -p $PORT:5000 --restart=always --name registry_$IPADDRS -v  /home/$MUSER/data:/var/lib/registry -v /home/$MUSER/certs$IPADDRS:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/home/$MUSER/certs$IPADDRS/domain.crt -e REGISTRY_HTTP_TLS_KEY=/home/$MUSER/certs$IPADDRS/domain.key registry:2
+docker run -d -p $PORT:5000 --restart=always --name registry_$IPADDRS -v  /home/$MUSER/data:/var/lib/registry -v /home/$MUSER/certs$IPADDRS:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry:2
